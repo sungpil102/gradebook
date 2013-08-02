@@ -1,0 +1,69 @@
+package gradebook.model;
+
+import java.util.ArrayList;
+
+/**
+ * Course with a subject, course number, name, and prerequisite courses.
+ *
+ * @author Seong Pil Yoo
+ */
+public class Course {
+    /** Course subject. */
+    private String subject;
+    /** CRN for the course. */
+    private int courseNumber;
+    /** Name of the course. */
+    private String name;
+    /** Prerequisites required. */
+    private ArrayList<Course> prerequisiteCourses;
+
+    public Course(final String subject, final int courseNumber,
+            final String name) {
+        this.subject = subject;
+        this.courseNumber = courseNumber;
+	this.name = name;
+	prerequisiteCourses = new ArrayList<Courses>();
+    }
+
+    /** Create the Course object.
+     * @param mysubject the subject for the course.
+     * @param mycourseNumber the course's number.
+     * @param mycourseName the course's name.
+     * @param myprerequisiteCourses the prerequs for the course.
+     * */
+    public Course(final String subject, final int courseNumber,
+            final String name,
+            final ArrayList<Course> prerequisiteCourses) {
+        this.subject = subject;
+        this.courseNumber = courseNumber;
+        this.name = name;
+        this.prerequisiteCourses = prerequisiteCourses;
+    }
+
+    /** Returns the course subject.
+     * @return Subject for the course
+     * */
+    public final String getSubject() {
+        return this.subject;
+    }
+
+    /** Returns the course number.
+     * @return number for the course
+     * */
+    public final int getCourseNumber() {
+        return this.courseNumber;
+    }
+    /** Returns the course Name.
+     * @return number for the course
+     * */
+    public final String getName() {
+        return this.name;
+    }
+    /** Returns the course prerequisites.
+     * @return prerequisites for the course
+     * */
+    public final ArrayList<Course> getPrerequisiteCourses() {
+        return prerequisiteCourses;
+    }
+}
+

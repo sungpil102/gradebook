@@ -1,0 +1,5 @@
+/**
+ * Provide Package information
+ * gradebook.model is a model objects for gradebook
+ */
+package gradebook.model;

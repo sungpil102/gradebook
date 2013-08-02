@@ -1,0 +1,66 @@
+package gradebook.model;
+
+/** Represents a student, taking one or more classes.
+ *
+ * @author Mike Nawrocki
+ * */
+public class Student {
+    /** The student's name. */
+    private String name;
+    /** Student Unique Identification Number. */
+    private int identNumber;
+    /** Gradebook items for this student. */
+    private StudentGradebookItems gradebookItems;
+    /** GradingScheme to use. */
+    private GradingScheme scheme;
+
+    /** Creates a student with requisite info.
+     * @param studName Student's name
+     * @param studID Student's Identification Number
+     * @param myScheme Grading Scheme to use.
+     * */
+    public Student(final String studName, final int studID,
+            final GradingScheme myScheme) {
+        name = studName;
+        identNumber = studID;
+        scheme = myScheme;
+        gradebookItems = new StudentGradebookItems();
+    }
+
+    /** Retrieve the student identification number.
+     * @return Identification Number
+     * */
+    public final int getIdentNumber() {
+        return identNumber;
+    }
+
+    /** Retrieve the student's name.
+     * @return Student name
+     * */
+    public final String getName() {
+        return name;
+    }
+
+    /** Add a gradebook item.
+     * @param item item to add
+     * @return the result of this addition.
+     * */
+    public final boolean addGradebookItem(final GradebookItem item) {
+        return gradebookItems.add(item);
+    }
+
+    /** Determine the overall score for the student in the class.
+     * @return Score containing points earned vs total.
+     * */
+    public final Score getScore() {
+        return scheme.totalScore(gradebookItems);
+    }
+
+    /** Determine the overall letter grade for the student in the class.
+     * @return Score containing points earned vs total.
+     * */
+    public final LetterGrade getLetterGrade() {
+        return scheme.calculateLetterGrade(gradebookItems);
+    }
+}
+
